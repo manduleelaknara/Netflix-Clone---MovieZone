@@ -4,7 +4,7 @@
 
 MovieZone is a Netflix-style movie streaming web application. Users can create an account, sign in, browse movies by category and watch trailers. Movie data is loaded from the TMDB API, and user accounts are handled with Firebase.
 
-**Live demo:** https://netflix-clone-movie-zone.vercel.app
+**Live demo:** https://moviezone-app.vercel.app/
 
 ## ✨ Features
 
@@ -86,7 +86,7 @@ src/
 The application is hosted on Vercel and connected to the GitHub repository. Every push to the `main` branch triggers an automatic rebuild and deployment.
 
 - **GitHub Repository:** https://github.com/manduleelaknara/Netflix-Clone---MovieZone
-- **Live Demo:** https://netflix-clone-movie-zone.vercel.app
+- **Live Demo:** https://moviezone-app.vercel.app/
 
 ## ⚠️ Known Limitations
 
