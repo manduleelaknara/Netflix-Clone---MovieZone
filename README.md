@@ -1,16 +1,102 @@
-# React + Vite
+# 🎬 MovieZone - Netflix Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📖 Overview
 
-Currently, two official plugins are available:
+MovieZone is a Netflix-style movie streaming web application. Users can create an account, sign in, browse movies by category and watch trailers. Movie data is loaded from the TMDB API, and user accounts are handled with Firebase.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Live demo:** https://netflix-clone-movie-zone.vercel.app
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- User sign up, sign in and sign out
+- Movie categories: Now Playing, Top Rated, Popular and Upcoming
+- Horizontal scrolling of movie rows with the mouse wheel
+- Trailer player page
+- Error messages using toast notifications
+- Automatic redirect: signed-in users go to Home, signed-out users go to Login
 
-## Expanding the ESLint configuration
+## ⚙️ How It Works
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+                 User
+                  |
+                  v
+        React Application (Vite)
+                  |
+                  v
+            React Router
+     --------------------------------
+     |              |               |
+     v              v               v
+ Login Page     Home Page      Player Page
+     |              |               |
+     v              v               v
+Firebase Auth   TMDB API        TMDB API
+Cloud Firestore (movie lists)   (movie videos)
+                                    |
+                                    v
+                              YouTube Embed
+```
+
+- **Login page:** creates and authenticates users with Firebase Authentication and saves user details in Cloud Firestore.
+- **Home page:** shows a hero banner and several movie rows, each loaded from a TMDB category.
+- **Player page:** fetches the trailer for the selected movie from TMDB and plays it using a YouTube embed.
+
+## 🛠️ Technologies Used
+
+### 💻 Frontend
+
+- React
+- Vite
+- React Router DOM
+- React Toastify
+- HTML and CSS
+
+### ☁️ Backend and Services
+
+- Firebase Authentication (user login and registration)
+- Cloud Firestore (user data storage)
+- TMDB API (movie data and images)
+
+### 🚀 Deployment
+
+- Vercel (hosting)
+- GitHub (version control)
+
+## 📁 Project Structure
+
+```
+src/
+├── assets/            Images, icons and card data
+├── components/
+│   ├── Footer/
+│   ├── Navbar/
+│   └── TitleCards/    Movie row component
+├── pages/
+│   ├── Home/
+│   ├── Login/
+│   └── Player/        Trailer page
+├── App.jsx            Routes and authentication listener
+├── firebase.js        Firebase configuration and auth functions
+└── main.jsx
+```
+
+## 🌐 Deployment
+
+The application is hosted on Vercel and connected to the GitHub repository. Every push to the `main` branch triggers an automatic rebuild and deployment.
+
+- **GitHub Repository:** https://github.com/manduleelaknara/Netflix-Clone---MovieZone
+- **Live Demo:** https://netflix-clone-movie-zone.vercel.app
+
+## ⚠️ Known Limitations
+
+- Movie data depends on the availability of the TMDB API.
+- Some movies do not have an embeddable trailer.
+- Only trailers are available, not full movies.
+- Search, My List and user profile features are not implemented.
+- Only email and password sign in is supported.
+
+## 👩‍💻 Author
+
+**Mandulee Laknara**
+GitHub: [@manduleelaknara](https://github.com/manduleelaknara)
